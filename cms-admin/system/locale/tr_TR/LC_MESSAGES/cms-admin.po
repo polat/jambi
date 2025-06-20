@@ -1,0 +1,706 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Jambi\n"
+"POT-Creation-Date: 2019-10-27 12:26+0300\n"
+"PO-Revision-Date: 2019-10-27 12:29+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-Basepath: ./../../../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: cms-admin/content/plugins/gallery/index.php:30
+msgid "Dosyaları Seçin"
+msgstr ""
+
+#: cms-admin/content/plugins/gallery/index.php:34
+msgid "Ya da bu alana sürükleyip bırakın."
+msgstr ""
+
+#: cms-admin/controller/layouts/header.php:13
+#: cms-admin/controller/layouts/login.php:10
+msgid "Yönetim Paneli"
+msgstr ""
+
+#: cms-admin/controller/layouts/home.php:10
+msgid "BAŞLANGIÇ"
+msgstr ""
+
+#: cms-admin/controller/layouts/login.php:26
+msgid ""
+"Bu kullanıcı hesabı pasif durumda! Giriş yapabilmeniz için \"Yönetici\" "
+"hesabın, bu hesabı aktif hale getirmesi gerekir."
+msgstr ""
+
+#: cms-admin/controller/layouts/login.php:28
+msgid "IP adresiniz engellendi!"
+msgstr ""
+
+#: cms-admin/controller/layouts/login.php:30
+msgid "Kullanıcı adı ya da şifre hatalı!"
+msgstr ""
+
+#: cms-admin/controller/layouts/login.php:37
+#: cms-admin/controller/modules/system_users/custom/profile.php:38
+#: cms-admin/controller/modules/system_users/handle/edit.php:45
+#: cms-admin/controller/modules/system_users/handle/new.php:52
+#: install/index.php:32 install/index.php:34
+msgid "Kullanıcı Adı"
+msgstr ""
+
+#: cms-admin/controller/layouts/login.php:39
+#: cms-admin/controller/modules/system_users/handle/edit.php:50
+#: cms-admin/controller/modules/system_users/handle/new.php:57
+#: install/index.php:33 install/index.php:35
+msgid "Şifre"
+msgstr ""
+
+#: cms-admin/controller/layouts/login.php:41
+msgid "Giriş Yap"
+msgstr ""
+
+#: cms-admin/controller/layouts/sidebar.php:5
+msgid "Navigasyonu aç/kapat"
+msgstr ""
+
+#: cms-admin/controller/layouts/sidebar.php:11
+msgid "Siteyi Görüntüle"
+msgstr ""
+
+#: cms-admin/controller/layouts/sidebar.php:36
+#: cms-admin/controller/modules/media_library/index.php:3
+msgid "Medya Kütüphanesi"
+msgstr ""
+
+#: cms-admin/controller/layouts/sidebar.php:37
+#: cms-admin/system/_system_tables.php:73
+msgid "Tanımlamalar"
+msgstr ""
+
+#: cms-admin/controller/layouts/sidebar.php:38
+#: cms-admin/system/_system_tables.php:158
+msgid "Menü"
+msgstr ""
+
+#: cms-admin/controller/layouts/sidebar.php:39
+#: cms-admin/system/_system_tables.php:311
+msgid "Sayfalar"
+msgstr ""
+
+#: cms-admin/controller/layouts/sidebar.php:85
+#: cms-admin/controller/modules/system_settings/custom/general.php:107
+#: cms-admin/controller/modules/system_settings/custom/popup.php:69
+#: cms-admin/system/_system_tables.php:440
+msgid "Ayarlar"
+msgstr ""
+
+#: cms-admin/controller/layouts/sidebar.php:89
+#: cms-admin/controller/modules/system_settings/custom/general.php:107
+msgid "Genel"
+msgstr ""
+
+#: cms-admin/controller/layouts/sidebar.php:92
+#: cms-admin/controller/modules/system_settings/custom/popup.php:69
+msgid "Popup"
+msgstr ""
+
+#: cms-admin/controller/layouts/sidebar.php:104
+#: cms-admin/controller/modules/system_users/custom/profile.php:22
+msgid "Profili Düzenle"
+msgstr ""
+
+#: cms-admin/controller/layouts/sidebar.php:107
+msgid "Çıkış Yap"
+msgstr ""
+
+#: cms-admin/controller/layouts/title.php:8
+msgid "Yeni Kayıt Ekle"
+msgstr ""
+
+#: cms-admin/controller/layouts/title.php:12
+#: cms-admin/controller/layouts/title.php:34
+msgid "Güncelle"
+msgstr ""
+
+#: cms-admin/controller/layouts/title.php:15
+#: cms-admin/controller/modules/default/handle/list.php:66
+msgid "Yayınla"
+msgstr ""
+
+#: cms-admin/controller/layouts/title.php:19
+msgid "Taslak Olarak Kaydet"
+msgstr ""
+
+#: cms-admin/controller/layouts/title.php:24
+msgid "Sayfaya Git"
+msgstr ""
+
+#: cms-admin/controller/layouts/title.php:28
+msgid "Vazgeç"
+msgstr ""
+
+#: cms-admin/controller/layouts/title.php:37
+#: cms-admin/controller/modules/default/handle/list.php:71
+msgid "Çöp Kutusu"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/delete.php:23
+msgid "Kayıtlar silindi."
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/delete.php:25
+msgid "Kayıtlar silinirken bir hata oluştu!"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/delete.php:37
+msgid "Kayıt silindi."
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/delete.php:39
+msgid "Kayıt silinirken bir hata oluştu!"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/edit.php:25
+msgid "Sayfa Ayarları"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/edit.php:59
+#: cms-admin/controller/modules/default/handle/option.php:41
+msgid "Bu alanı silmek istiyor musunuz ?"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/edit.php:62
+#: cms-admin/controller/modules/default/handle/option.php:44
+msgid "Evet"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/edit.php:63
+#: cms-admin/controller/modules/default/handle/option.php:45
+msgid "Hayır"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/edit.php:101
+msgid "SEO"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/edit.php:125
+msgid "Sitemap Görünürlüğü"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/edit.php:127
+msgid "Açık"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/edit.php:128
+msgid "Kapalı"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/edit.php:132
+msgid "Sayfa Resmi"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/edit.php:135
+#: cms-admin/controller/modules/system_settings/custom/general.php:197
+#: cms-admin/controller/modules/system_settings/custom/general.php:274
+#: cms-admin/controller/modules/system_settings/custom/general.php:292
+#: cms-admin/controller/modules/system_settings/custom/general.php:310
+#: cms-admin/controller/modules/system_settings/custom/popup.php:134
+#: cms-admin/library/system/Fields.php:603
+#: cms-admin/library/system/Fields.php:625
+msgid "Dosya Seç"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/edit.php:139
+#: cms-admin/controller/modules/system_settings/custom/general.php:206
+msgid "Sayfanın öne çıkarılan resmidir."
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/edit.php:143
+#: cms-admin/system/_system_tables.php:404
+msgid "Sayfa Başlığı"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/edit.php:147
+#: cms-admin/controller/modules/system_settings/custom/general.php:215
+msgid ""
+"Önerilen sayfa başlığı limiti 60 karakterdir, <span class=\"limit_counter "
+"valid\">60</span> karakter kaldı."
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/edit.php:151
+msgid "Sayfa Açıklaması"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/edit.php:155
+#: cms-admin/controller/modules/system_settings/custom/general.php:224
+msgid ""
+"Önerilen sayfa açıklama limiti 160 karakterdir, <span class=\"limit_counter "
+"valid\">160</span> karakter kaldı."
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/list.php:15
+msgid "Seçilenleri Önceki Sayfaya Taşı"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/list.php:19
+msgid "Seçilenleri Sonraki Sayfaya Taşı"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/list.php:29
+msgid "Ne aramak istediniz?"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/list.php:31
+msgid "Ara"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/list.php:63
+msgid "Kayıt Göster"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/list.php:69
+msgid "Taslak"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/list.php:74
+msgid "Dışa Aktar"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/list.php:110
+msgid "Kayıt bulunamadı."
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/list.php:153
+#: cms-admin/controller/modules/default/handle/list.php:179
+msgid "Eklendiği Tarih"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/list.php:154
+#: cms-admin/controller/modules/default/handle/list.php:180
+msgid "Son Güncelleme"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/list.php:191
+msgid "Çöpe Taşı"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/list.php:192
+msgid "Kopyala"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/list.php:193
+msgid "Düzenle"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/list.php:196
+msgid "Sayfayı Göster"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/list.php:202
+msgid "Kalıcı Olarak Sil"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/list.php:203
+msgid "Görüntüle"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/list.php:204
+msgid "Geri Yükle"
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/restore.php:19
+msgid "Kayıt başarıyla geri yüklendi."
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/sort.php:30
+#: cms-admin/controller/modules/default/handle/sort.php:100
+msgid "Sıralama yeniden oluşturuldu."
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/trash.php:35
+msgid "Kayıtlar çöp kutusuna taşındı."
+msgstr ""
+
+#: cms-admin/controller/modules/default/handle/trash.php:56
+msgid "Kayıt çöp kutusuna taşındı."
+msgstr ""
+
+#: cms-admin/controller/modules/default/index.php:6
+msgid "Modül Bulunamadı!"
+msgstr ""
+
+#: cms-admin/controller/modules/default/index.php:21
+#: cms-admin/controller/modules/default/index.php:34
+#: cms-admin/controller/modules/system_users/index.php:24
+#: cms-admin/controller/modules/system_users/index.php:37
+#: cms-admin/index.php:46
+msgid "Sayfa bulunamadı!"
+msgstr ""
+
+#: cms-admin/controller/modules/system_settings/custom/general.php:95
+#: cms-admin/library/system/SaveList.php:321
+msgid "Değişiklik yapıldı."
+msgstr ""
+
+#: cms-admin/controller/modules/system_settings/custom/general.php:97
+#: cms-admin/library/system/SaveList.php:323
+msgid "Değişiklik yapılamadı!"
+msgstr ""
+
+#: cms-admin/controller/modules/system_settings/custom/general.php:111
+#: cms-admin/controller/modules/system_settings/custom/popup.php:73
+#: cms-admin/controller/modules/system_users/custom/profile.php:26
+#: cms-admin/controller/modules/system_users/handle/edit.php:33
+#: cms-admin/controller/modules/system_users/handle/new.php:24
+msgid "Kaydet"
+msgstr ""
+
+#: cms-admin/controller/modules/system_settings/custom/general.php:119
+msgid "Seçenekler"
+msgstr ""
+
+#: cms-admin/controller/modules/system_settings/custom/general.php:127
+msgid "Yönetim Panelinin Dili"
+msgstr ""
+
+#: cms-admin/controller/modules/system_settings/custom/general.php:141
+msgid "Sitenin Varsayılan Dili"
+msgstr ""
+
+#: cms-admin/controller/modules/system_settings/custom/general.php:161
+msgid "Meta"
+msgstr ""
+
+#: cms-admin/controller/modules/system_settings/custom/general.php:191
+msgid "Site Resmi"
+msgstr ""
+
+#: cms-admin/controller/modules/system_settings/custom/general.php:210
+msgid "Site Başlığı"
+msgstr ""
+
+#: cms-admin/controller/modules/system_settings/custom/general.php:219
+msgid "Site Açıklaması"
+msgstr ""
+
+#: cms-admin/controller/modules/system_settings/custom/general.php:237
+msgid "Tasarım"
+msgstr ""
+
+#: cms-admin/controller/modules/system_settings/custom/general.php:267
+#: cms-admin/controller/modules/system_settings/custom/general.php:285
+msgid "Logo"
+msgstr ""
+
+#: cms-admin/controller/modules/system_settings/custom/general.php:303
+msgid "Favicon"
+msgstr ""
+
+#: cms-admin/controller/modules/system_settings/custom/popup.php:111
+msgid "Görünürlük Durumu"
+msgstr ""
+
+#: cms-admin/controller/modules/system_settings/custom/popup.php:114
+msgid "Sadece Anasayfada görünsün."
+msgstr ""
+
+#: cms-admin/controller/modules/system_settings/custom/popup.php:117
+msgid "Tüm sayfalarda görünsün."
+msgstr ""
+
+#: cms-admin/controller/modules/system_settings/custom/popup.php:123
+msgid "Yenilenme Süresi (Dakika)"
+msgstr ""
+
+#: cms-admin/controller/modules/system_settings/custom/popup.php:128
+msgid "Popup Dosyası"
+msgstr ""
+
+#: cms-admin/controller/modules/system_users/custom/profile.php:12
+msgid "Şifre değiştirildi!"
+msgstr ""
+
+#: cms-admin/controller/modules/system_users/custom/profile.php:14
+msgid "Girilen bilgiler yanlış ya da eksik."
+msgstr ""
+
+#: cms-admin/controller/modules/system_users/custom/profile.php:34
+msgid "Kullanıcı Bilgileri"
+msgstr ""
+
+#: cms-admin/controller/modules/system_users/custom/profile.php:46
+msgid "Şifre Değiştirme"
+msgstr ""
+
+#: cms-admin/controller/modules/system_users/custom/profile.php:51
+msgid "Geçerli Şifre"
+msgstr ""
+
+#: cms-admin/controller/modules/system_users/custom/profile.php:56
+#: cms-admin/library/system/Fields.php:576
+msgid "Yeni Şifre"
+msgstr ""
+
+#: cms-admin/controller/modules/system_users/custom/profile.php:61
+msgid "Yeni Şifre Tekrar"
+msgstr ""
+
+#: cms-admin/controller/modules/system_users/handle/edit.php:29
+#: cms-admin/controller/modules/system_users/handle/new.php:20
+#: cms-admin/system/_system_tables.php:472
+msgid "Kullanıcılar"
+msgstr ""
+
+#: cms-admin/controller/modules/system_users/handle/edit.php:56
+#: cms-admin/controller/modules/system_users/handle/new.php:42
+msgid "Hesap Durumu"
+msgstr ""
+
+#: cms-admin/controller/modules/system_users/handle/edit.php:60
+#: cms-admin/controller/modules/system_users/handle/new.php:45
+msgid "Aktif"
+msgstr ""
+
+#: cms-admin/controller/modules/system_users/handle/edit.php:62
+#: cms-admin/controller/modules/system_users/handle/new.php:47
+msgid "Pasif"
+msgstr ""
+
+#: cms-admin/controller/modules/system_users/handle/new.php:33
+msgid "Kullanıcı Yetkisi"
+msgstr ""
+
+#: cms-admin/controller/modules/system_users/handle/new.php:36
+msgid "Kullanıcı"
+msgstr ""
+
+#: cms-admin/controller/modules/system_users/handle/new.php:37
+msgid "Yönetici"
+msgstr ""
+
+#: cms-admin/controller/modules/system_users/handle/new.php:62
+msgid "Şifre Onayı"
+msgstr ""
+
+#: cms-admin/index.php:6
+#, php-format
+msgid ""
+"Kullandığınız PHP versiyonu <strong>%s</strong>, Cms-Admin minimum PHP "
+"<strong>%s</strong> versiyonu ile çalışır."
+msgstr ""
+
+#: cms-admin/index.php:20
+msgid ""
+"Jambi'nin düzgün çalışabilmesi için şu kütüphaneleri yüklemeniz gerekli -> "
+msgstr ""
+
+#: cms-admin/index.php:33
+msgid "Cms-Admin Kurulum dosyası bulunamadı! Lütfen kontrol ediniz."
+msgstr ""
+
+#: cms-admin/library/system/Fields.php:844
+msgid "--Yok--"
+msgstr ""
+
+#: cms-admin/library/system/Helper.php:117
+msgid "Ocak"
+msgstr ""
+
+#: cms-admin/library/system/Helper.php:120
+msgid "Şubat"
+msgstr ""
+
+#: cms-admin/library/system/Helper.php:123
+msgid "Mart"
+msgstr ""
+
+#: cms-admin/library/system/Helper.php:126
+msgid "Nisan"
+msgstr ""
+
+#: cms-admin/library/system/Helper.php:129
+msgid "Mayıs"
+msgstr ""
+
+#: cms-admin/library/system/Helper.php:132
+msgid "Haziran"
+msgstr ""
+
+#: cms-admin/library/system/Helper.php:135
+msgid "Temmuz"
+msgstr ""
+
+#: cms-admin/library/system/Helper.php:138
+msgid "Ağustos"
+msgstr ""
+
+#: cms-admin/library/system/Helper.php:141
+msgid "Eylül"
+msgstr ""
+
+#: cms-admin/library/system/Helper.php:144
+msgid "Ekim"
+msgstr ""
+
+#: cms-admin/library/system/Helper.php:147
+msgid "Kasım"
+msgstr ""
+
+#: cms-admin/library/system/Helper.php:150
+msgid "Aralık"
+msgstr ""
+
+#: cms-admin/library/system/Loader.php:90
+msgid "Veritabanı bağlantısı sağlanamadı!"
+msgstr ""
+
+#: cms-admin/library/system/Member.php:44
+msgid "Bu kullanıcı adı kullanılıyor!"
+msgstr ""
+
+#: cms-admin/library/system/Member.php:47
+msgid "Kullanıcı kaydı başarıyla yapıldı."
+msgstr ""
+
+#: cms-admin/library/system/Member.php:49
+msgid "Kullanıcı kaydı sırasında bir hata oluştu!"
+msgstr ""
+
+#: cms-admin/library/system/Member.php:73
+msgid "Kullanıcı bilgileri başarıyla güncellendi."
+msgstr ""
+
+#: cms-admin/library/system/Member.php:75
+msgid "Kullanıcı bilgileri güncellenirken hata oluştu!"
+msgstr ""
+
+#: cms-admin/library/system/Member.php:97
+msgid "Kullanıcı başarıyla silindi."
+msgstr ""
+
+#: cms-admin/library/system/Member.php:99
+msgid "Kullanıcı silinirken hata oluştu!"
+msgstr ""
+
+#: cms-admin/library/system/Member.php:102
+msgid "Böyle bir kullanıcı bulunamadı!"
+msgstr ""
+
+#: cms-admin/library/system/Member.php:130
+msgid "Kullanıcılar başarıyla silindi."
+msgstr ""
+
+#: cms-admin/library/system/Member.php:132
+msgid "Kullanıcılar silinirken hata oluştu!"
+msgstr ""
+
+#: cms-admin/library/system/SaveList.php:292
+msgid "Kayıt eklendi."
+msgstr ""
+
+#: cms-admin/library/system/SaveList.php:294
+msgid "Kayıt eklenirken bir hata oluştu!"
+msgstr ""
+
+#: cms-admin/library/system/SaveList.php:472
+#, php-format
+msgid ""
+"Aynı \"%s\" %s değerine sahip başka bir kayıt bulunuyor. Lütfen başka bir "
+"değer girin."
+msgstr ""
+
+#: cms-admin/system/_system_tables.php:79
+#: cms-admin/system/_system_tables.php:162
+msgid "Etiket"
+msgstr ""
+
+#: cms-admin/system/_system_tables.php:90
+msgid "Tip"
+msgstr ""
+
+#: cms-admin/system/_system_tables.php:96
+#: cms-admin/system/_system_tables.php:107
+#: cms-admin/system/_system_tables.php:419
+msgid "İçerik"
+msgstr ""
+
+#: cms-admin/system/_system_tables.php:96
+#: cms-admin/system/_system_tables.php:100
+#: cms-admin/system/_system_tables.php:371
+msgid "Dosya"
+msgstr ""
+
+#: cms-admin/system/_system_tables.php:173
+#: cms-admin/system/_system_tables.php:397
+msgid "Menü Başlığı"
+msgstr ""
+
+#: cms-admin/system/_system_tables.php:317
+msgid "Yeri"
+msgstr ""
+
+#: cms-admin/system/_system_tables.php:336
+msgid "Self"
+msgstr ""
+
+#: cms-admin/system/_system_tables.php:336
+msgid "Blank"
+msgstr ""
+
+#: cms-admin/system/_system_tables.php:340
+msgid "Kayıt Tipi"
+msgstr ""
+
+#: cms-admin/system/_system_tables.php:346
+msgid "Sayfa"
+msgstr ""
+
+#: cms-admin/system/_system_tables.php:346
+msgid "Link"
+msgstr ""
+
+#: cms-admin/system/_system_tables.php:350
+msgid "Modül Tipi"
+msgstr ""
+
+#: cms-admin/system/_system_tables.php:356
+msgid "Standart"
+msgstr ""
+
+#: cms-admin/system/_system_tables.php:356
+msgid "Landing"
+msgstr ""
+
+#: cms-admin/system/_system_tables.php:360
+msgid "Modül"
+msgstr ""
+
+#: cms-admin/system/_system_tables.php:378
+msgid "İkon"
+msgstr ""
+
+#: cms-admin/system/_system_tables.php:385
+msgid "Üst Menü"
+msgstr ""
+
+#: cms-admin/system/_system_tables.php:411
+msgid "URL"
+msgstr ""
+
+#: cms-admin/system/_system_tables.php:426
+msgid "Galeri"
+msgstr ""
+
+#: install/index.php:27
+msgid "Kurulum sırasında bir hata oluştu."
+msgstr ""
+
+#: install/index.php:31
+msgid "Kurulum başarıyla tamamlandı. Giriş yapmak için sayfayı yenileyin."
+msgstr ""

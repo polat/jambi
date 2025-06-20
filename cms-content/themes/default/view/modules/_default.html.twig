@@ -1,0 +1,11 @@
+{{ content.content }}
+
+{% if not content.gallery is empty %}
+<!-- Gallery -->
+<ul class="gallery s-popup-gallery">
+    {% for value in content.gallery %}
+    <li><a href="{{ JAMBI_UPLOADS ~ value.original }}" rel="image"><img src="{{ JAMBI_UPLOADS ~ value.original }}" alt=""></a></li>
+    {% endfor %}
+</ul>
+<!-- //Gallery -->
+{% endif %}
