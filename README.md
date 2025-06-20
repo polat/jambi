@@ -3,7 +3,7 @@
 Jambi is a lightweight content management system (CMS) written in PHP.
 
 ## Project Status
-- **Development period:** 2015–2018
+- **Development period:** 2015 – 2018
 - **Maintenance:** This project is no longer actively maintained.
 
 ## Features
