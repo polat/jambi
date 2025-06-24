@@ -1,0 +1,1170 @@
+<!--
+---
+****************************
+  CONTAINERS
+****************************
+---
+-->
+<!-- groupFieldsContainer -->
+{% block groupFieldsContainer %}
+    <li class="metabox_group">
+        <div class="metabox_trigger active">{{ title }}</div>
+        <div class="metabox_content">
+            {{ fields }}
+        </div>
+    </li>
+{% endblock groupFieldsContainer %}
+<!-- groupFieldsContainer -->
+
+<!-- dynamicGroupFieldsContainer -->
+{% block dynamicGroupFieldsContainer %}
+    <div class="dynamicContainer">
+        {% for single in fields %}
+            <div class="dynamic_fieldset">
+                <div class="dynamic_fieldset_append {{ loop.first == true ? '' : 'delete' }}"></div>
+                <div class="dynamic_fieldset_inner">
+                    {{ single }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock dynamicGroupFieldsContainer %}
+<!-- dynamicFieldsContainer -->
+
+
+<!--
+---
+****************************
+  FIELDS
+****************************
+---
+-->
+
+<!-- hidden -->
+{% block hidden %}
+    <li>
+        {% block hiddenInner %}
+            <div class="fieldset clearfix" style="display: none">
+                <label>{{ field.title }}</label>
+                <label class="full">
+                    <input type="hidden" name="{{ field.label }}" value="{{ field.value }}" class="form-control" />
+                </label>
+
+                {% if field.options.help is defined %}
+                    <div class="alert alert-warning help">
+                        {{ field.options.help }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endblock hiddenInner %}
+    </li>
+{% endblock hidden %}
+<!-- //hidden -->
+
+<!-- ******************************************************************************************************************************** -->
+
+<!-- text | Static -->
+{% block text %}
+    <li>
+        {% block textInner %}
+            <div class="fieldset clearfix">
+                <label>{{ field.title }}</label>
+                <label class="full">
+                    <input type="text" name="{{ field.label }}" value="{{ field.value|escape }}" class="form-control" {{ field.options.limit_counter.limit != '' ? 'data-limit-counter="' ~ field.options.limit_counter.limit ~ '"' : '' }} {{ disableOption }} />
+                </label>
+
+                {% if field.options.help is defined %}
+                    <div class="alert alert-warning help">
+                        {{ field.options.help }}
+                    </div>
+                {% endif %}
+
+                {% if field.options.limit_counter.limit is defined %}
+                    <div class="alert alert-info help counter">
+                        {{ field.options.limit_counter.description }} <span class="limit_counter valid">{{ field.options.limit_counter.limit }}</span> karakter kaldı.
+                    </div>
+                {% endif %}
+            </div>
+        {% endblock textInner %}
+    </li>
+{% endblock text %}
+<!-- //text | Static -->
+
+<!-- text | Dynamic Multiple Group -->
+{% block dynamicTextGroup %}
+    <div class="fieldset clearfix">
+        <label>{{ field.title }}</label>
+        <label class="full">
+            <input type="text" name="{{ field.label }}[]" value="{{ single|escape }}" class="form-control" {{ field.options.limit_counter.limit != '' ? 'data-limit-counter="' ~ field.options.limit_counter.limit ~ '"' : '' }} {{ disableOption }} />
+        </label>
+
+        {% if field.options.help is defined %}
+            <div class="alert alert-warning help">
+                {{ field.options.help }}
+            </div>
+        {% endif %}
+
+        {% if field.options.limit_counter.limit is defined %}
+            <div class="alert alert-info help counter">
+                {{ field.options.limit_counter.description }} <span class="limit_counter valid">{{ field.options.limit_counter.limit }}</span> karakter kaldı.
+            </div>
+        {% endif %}
+    </div>
+{% endblock dynamicTextGroup %}
+<!-- //text | Dynamic Multiple Group -->
+
+<!-- dynamic[text] | Single & Group -->
+{% block dynamicText %}
+    <li>
+        {% block dynamicTextInner %}
+            {% for single in field.value %}
+                <div class="dynamic_fieldset">
+                    <div class="dynamic_fieldset_append {{ loop.first == true ? '' : 'delete' }}"></div>
+                    <div class="dynamic_fieldset_inner">
+                        <div class="fieldset clearfix">
+                            <label>{{ field.title }}</label>
+                            <label class="full">
+                                <input type="text" name="{{ field.label }}[]" value="{{ single|escape }}" class="form-control" {{ field.options.limit_counter.limit != '' ? 'data-limit-counter="' ~ field.options.limit_counter.limit ~ '"' : '' }} {{ disableOption }} />
+                            </label>
+
+                            {% if field.options.help is defined %}
+                                <div class="alert alert-warning help">
+                                    {{ field.options.help }}
+                                </div>
+                            {% endif %}
+
+                            {% if field.options.limit_counter.limit is defined %}
+                                <div class="alert alert-info help counter">
+                                    {{ field.options.limit_counter.description }} <span class="limit_counter valid">{{ field.options.limit_counter.limit }}</span> karakter kaldı.
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endblock dynamicTextInner %}
+    </li>
+{% endblock dynamicText %}
+<!-- //dynamic[text] | Single & Group -->
+
+<!-- ******************************************************************************************************************************** -->
+
+<!-- textarea | Static -->
+{% block textarea %}
+    <li>
+        {% block textareaInner %}
+            <div class="fieldset clearfix">
+                <label>{{ field.title }}</label>
+                <label class="full">
+                    <textarea name="{{ field.label }}" class="form-control" {{ field.options.limit_counter.limit != '' ? 'data-limit-counter="' ~ field.options.limit_counter.limit ~ '"' : '' }} {{ disableOption }} >{{ field.value|escape }}</textarea>
+                </label>
+
+                {% if field.options.help is defined %}
+                    <div class="alert alert-warning help">
+                        {{ field.options.help }}
+                    </div>
+                {% endif %}
+
+                {% if field.options.limit_counter.limit is defined %}
+                    <div class="alert alert-info help counter">
+                        {{ field.options.limit_counter.description }} <span class="limit_counter valid">{{ field.options.limit_counter.limit }}</span> karakter kaldı.
+                    </div>
+                {% endif %}
+            </div>
+        {% endblock textareaInner %}
+    </li>
+{% endblock textarea %}
+<!-- //textarea | Static -->
+
+<!-- textarea | Dynamic Multiple Group -->
+{% block dynamicTextareaGroup %}
+    <div class="fieldset clearfix">
+        <label>{{ field.title }}</label>
+        <label class="full">
+            <textarea name="{{ field.label }}[]" class="form-control" {{ field.options.limit_counter.limit != '' ? 'data-limit-counter="' ~ field.options.limit_counter.limit ~ '"' : '' }} {{ disableOption }} >{{ single|escape }}</textarea>
+        </label>
+
+        {% if field.options.help is defined %}
+            <div class="alert alert-warning help">
+                {{ field.options.help }}
+            </div>
+        {% endif %}
+
+        {% if field.options.limit_counter.limit is defined %}
+            <div class="alert alert-info help counter">
+                {{ field.options.limit_counter.description }} <span class="limit_counter valid">{{ field.options.limit_counter.limit }}</span> karakter kaldı.
+            </div>
+        {% endif %}
+    </div>
+{% endblock dynamicTextareaGroup %}
+<!-- //textarea | Dynamic Multiple Group -->
+
+<!-- textarea | Dynamic Single & Group -->
+{% block dynamicTextarea %}
+    <li>
+        {% block dynamicTextareaInner %}
+            {% for single in field.value %}
+                <div class="dynamic_fieldset">
+                    <div class="dynamic_fieldset_append {{ loop.first == true ? '' : 'delete' }}"></div>
+                    <div class="dynamic_fieldset_inner">
+                        <div class="fieldset clearfix">
+                            <label>{{ field.title }}</label>
+                            <label class="full">
+                                <textarea name="{{ field.label }}[]" class="form-control" {{ field.options.limit_counter.limit != '' ? 'data-limit-counter="' ~ field.options.limit_counter.limit ~ '"' : '' }} {{ disableOption }} >{{ single|escape }}</textarea>
+                            </label>
+
+                            {% if field.options.help is defined %}
+                                <div class="alert alert-warning help">
+                                    {{ field.options.help }}
+                                </div>
+                            {% endif %}
+
+                            {% if field.options.limit_counter.limit is defined %}
+                                <div class="alert alert-info help counter">
+                                    {{ field.options.limit_counter.description }} <span class="limit_counter valid">{{ field.options.limit_counter.limit }}</span> karakter kaldı.
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endblock dynamicTextareaInner %}
+    </li>
+{% endblock dynamicTextarea %}
+<!-- textarea | Dynamic Single & Group -->
+
+<!-- ******************************************************************************************************************************** -->
+
+<!-- editor -->
+{% block editor %}
+    <li>
+        {% block editorInner %}
+            <div class="fieldset clearfix">
+                <label>{{ field.title }}</label>
+                <label class="full">
+                    <textarea name="{{ field.label }}" class="form-control editor">{{ field.value }}</textarea>
+                </label>
+
+                {% if field.options.help is defined %}
+                    <div class="alert alert-warning help">
+                        {{ field.options.help }}
+                    </div>
+                {% endif %}
+
+                {% if field.options.limit_counter.limit is defined %}
+                    <div class="alert alert-info help counter">
+                        {{ field.options.limit_counter.description }} <span class="limit_counter valid">{{ field.options.limit_counter.limit }}</span> karakter kaldı.
+                    </div>
+                {% endif %}
+            </div>
+        {% endblock editorInner %}
+    </li>
+{% endblock editor %}
+<!-- //editor -->
+
+<!-- ******************************************************************************************************************************** -->
+
+<!-- permalink -->
+{% block permalink %}
+    <li>
+        {% block permalinkInner %}
+            <div class="fieldset clearfix">
+                <label>{{ field.title }}</label>
+                <label class="full">
+                    <input type="text" name="{{ field.label }}" rel="{{ field.options.attach }}" value="{{ field.value }}" class="form-control permalink" readonly="readonly"/>
+                </label>
+
+                {% if field.options.help is defined %}
+                    <div class="alert alert-warning help">
+                        {{ field.options.help }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endblock permalinkInner %}
+    </li>
+{% endblock permalink %}
+<!-- //permalink -->
+
+<!-- ******************************************************************************************************************************** -->
+
+<!-- number | Static -->
+{% block number %}
+    <li>
+        {% block numberInner %}
+            <div class="fieldset clearfix">
+                <label>{{ field.title }}</label>
+                <label class="full">
+                    <input type="number" name="{{ field.label }}" value="{{ field.value }}" class="form-control" {{ disableOption }}/>
+                </label>
+
+                {% if field.options.help is defined %}
+                    <div class="alert alert-warning help">
+                        {{ field.options.help }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endblock numberInner %}
+    </li>
+{% endblock number %}
+<!-- //number | Static -->
+
+<!-- number | Dynamic Multiple Group -->
+{% block dynamicNumberGroup %}
+    <div class="fieldset clearfix">
+        <label>{{ field.title }}</label>
+        <label class="full">
+            <input type="number" name="{{ field.label }}[]" value="{{ single }}" class="form-control" {{ disableOption }}/>
+        </label>
+
+        {% if field.options.help is defined %}
+            <div class="alert alert-warning help">
+                {{ field.options.help }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock dynamicNumberGroup %}
+<!-- //number | Dynamic Multiple Group -->
+
+<!-- number | Dynamic Single & Group -->
+{% block dynamicNumber %}
+    <li>
+        {% block dynamicNumberInner %}
+            {% for single in field.value %}
+                <div class="dynamic_fieldset">
+                    <div class="dynamic_fieldset_append {{ loop.first == true ? '' : 'delete' }}"></div>
+                    <div class="dynamic_fieldset_inner">
+                        <div class="fieldset clearfix">
+                            <label>{{ field.title }}</label>
+                            <label class="full">
+                                <input type="number" name="{{ field.label }}[]" value="{{ single }}" class="form-control" {{ disableOption }}/>
+                            </label>
+
+                            {% if field.options.help is defined %}
+                                <div class="alert alert-warning help">
+                                    {{ field.options.help }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endblock dynamicNumberInner %}
+    </li>
+{% endblock dynamicNumber %}
+<!-- //number | Dynamic Single & Group -->
+
+<!-- ******************************************************************************************************************************** -->
+
+<!-- price | Static -->
+{% block price %}
+    <li>
+        {% block priceInner %}
+            <div class="fieldset clearfix">
+                <label>{{ field.title }}</label>
+                <label class="full">
+                    <input type="number" name="{{ field.label }}" value="{{ field.value }}" class="price form-control" {{ disableOption }}/>
+                </label>
+
+                {% if field.options.help is defined %}
+                    <div class="alert alert-warning help">
+                        {{ field.options.help }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endblock priceInner %}
+    </li>
+{% endblock price %}
+<!-- //price | Static -->
+
+<!-- price | Dynamic Multiple Group -->
+{% block dynamicPriceGroup %}
+    <div class="fieldset clearfix">
+        <label>{{ field.title }}</label>
+        <label class="full">
+            <input type="number" name="{{ field.label }}[]" value="{{ single }}" class="price form-control" {{ disableOption }}/>
+        </label>
+
+        {% if field.options.help is defined %}
+            <div class="alert alert-warning help">
+                {{ field.options.help }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock dynamicPriceGroup %}
+<!-- //price | Dynamic Multiple Group -->
+
+<!-- price | Dynamic Single & Group -->
+{% block dynamicPrice %}
+    <li>
+        {% block dynamicPriceInner %}
+            {% for single in field.value %}
+                <div class="dynamic_fieldset">
+                    <div class="dynamic_fieldset_append {{ loop.first == true ? '' : 'delete' }}"></div>
+                    <div class="dynamic_fieldset_inner">
+                        <div class="fieldset clearfix">
+                            <label>{{ field.title }}</label>
+                            <label class="full">
+                                <input type="number" name="{{ field.label }}[]" value="{{ single }}" class="price form-control" {{ disableOption }}/>
+                            </label>
+
+                            {% if field.options.help is defined %}
+                                <div class="alert alert-warning help">
+                                    {{ field.options.help }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endblock dynamicPriceInner %}
+    </li>
+{% endblock dynamicPrice %}
+<!-- //price | Dynamic Single & Group -->
+
+<!-- ******************************************************************************************************************************** -->
+
+<!-- password -->
+{% block password %}
+    <li>
+        {% block passwordInner %}
+            <div class="fieldset clearfix">
+                <label>{{ field.title }}</label>
+                <label class="full">
+                    <input type="password" name="{{ field.label }}Old" value="{{ field.value }}" class="form-control" disabled />
+                    <input type="text" name="{{ field.label }}" value="" class="form-control" placeholder="{{ labels.newpass }}" style="margin-top: 10px;"/>
+                </label>
+
+                {% if field.options.help is defined %}
+                    <div class="alert alert-warning help">
+                        {{ field.options.help }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endblock passwordInner %}
+    </li>
+{% endblock password %}
+<!-- //password -->
+
+<!-- ******************************************************************************************************************************** -->
+
+<!-- file | Static -->
+{% block file %}
+    <li>
+        {% block fileInner %}
+            <div class="fieldset clearfix">
+                <label>{{ field.title }}</label>
+                <label class="full fileSelect">
+                    <a type="button" href="{{ fileManagerLink }}" class="btn btn-sm btn-primary filemanager-iframe"><i class="fa fa-search"></i> {{ labels.selectFile }}</a>
+                    <input id="{{ field.label }}Input" name="{{ field.label }}" value="{{ field.value }}" class="form-control" readonly="readonly">
+                    <a href="javascript:void(0)" class="btn btn-sm btn-danger removeFile"><i class="fa fa-times"></i></a>
+                </label>
+
+                {% if field.options.help is defined %}
+                    <div class="alert alert-warning help">
+                        {{ field.options.help }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endblock fileInner %}
+    </li>
+{% endblock file %}
+<!-- //file | Static -->
+
+<!-- file | Dynamic Multiple Group -->
+{% block dynamicFileGroup %}
+    <div class="fieldset clearfix">
+        <label>{{ field.title }}</label>
+        <label class="full fileSelect">
+            <a type="button" href="{{ fileManagerLink }}-{{ key }}" data-href="{{ fileManagerLink }}" class="btn btn-sm btn-primary filemanager-iframe"><i class="fa fa-search"></i> {{ labels.selectFile }}</a>
+            <input id="{{ field.label }}Input-{{ key }}" data-id="{{ field.label }}Input" name="{{ field.label }}[]" value="{{ single }}" class="form-control file" readonly="readonly">
+            <a href="javascript:void(0)" class="btn btn-sm btn-danger removeFile"><i class="fa fa-times"></i></a>
+        </label>
+
+        {% if field.options.help is defined %}
+            <div class="alert alert-warning help">
+                {{ field.options.help }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock dynamicFileGroup %}
+<!-- //file | Dynamic Multiple Group -->
+
+<!-- file | Dynamic Single & Group -->
+{% block dynamicFile %}
+    <li>
+        {% block dynamicFileInner %}
+            {% for key,single in field.value %}
+                <div class="dynamic_fieldset">
+                    <div class="dynamic_fieldset_append {{ loop.first == true ? '' : 'delete' }}"></div>
+                    <div class="dynamic_fieldset_inner">
+                        <div class="fieldset clearfix">
+                            <label>{{ field.title }}</label>
+                            <label class="full fileSelect">
+                                <a type="button" href="{{ fileManagerLink }}-{{ key }}" data-href="{{ fileManagerLink }}" class="btn btn-sm btn-primary filemanager-iframe"><i class="fa fa-search"></i> {{ labels.selectFile }}</a>
+                                <input id="{{ field.label }}Input-{{ key }}" data-id="{{ field.label }}Input" name="{{ field.label }}[]" value="{{ single }}" class="form-control file" readonly="readonly">
+                                <a href="javascript:void(0)" class="btn btn-sm btn-danger removeFile"><i class="fa fa-times"></i></a>
+                            </label>
+
+                            {% if field.options.help is defined %}
+                                <div class="alert alert-warning help">
+                                    {{ field.options.help }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endblock dynamicFileInner %}
+    </li>
+{% endblock dynamicFile %}
+<!-- //file | Dynamic Single & Group -->
+
+<!-- ******************************************************************************************************************************** -->
+
+<!-- date | Static -->
+{% block date %}
+    <li>
+        {% block dateInner %}
+            <div class="fieldset clearfix">
+                <label>{{ field.title }}</label>
+                <label class="full">
+                    <input type="text" name="{{ field.label }}" value="{{ field.value }}" placeholder="{{ placeholder }}" class="form-control date" data-minDate="{{ field.options.minDate }}" {{ disableOption }}/>
+                </label>
+
+                {% if field.options.help is defined %}
+                    <div class="alert alert-warning help">
+                        {{ field.options.help }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endblock dateInner %}
+    </li>
+{% endblock date %}
+<!-- //date | Static -->
+
+<!-- date | Dynamic Multiple Group -->
+{% block dynamicDateGroup %}
+    <div class="fieldset clearfix">
+        <label>{{ field.title }}</label>
+        <label class="full">
+            <input type="text" name="{{ field.label }}[]" value="{{ single }}" placeholder="{{ placeholder }}" class="form-control date" data-minDate="{{ field.options.minDate }}" {{ disableOption }} />
+        </label>
+
+        {% if field.options.help is defined %}
+            <div class="alert alert-warning help">
+                {{ field.options.help }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock dynamicDateGroup %}
+<!-- //date | Dynamic Multiple Group -->
+
+<!-- date | Dynamic Single & Group -->
+{% block dynamicDate %}
+    <li>
+        {% block dynamicDateInner %}
+            {% for single in field.value %}
+                <div class="dynamic_fieldset">
+                    <div class="dynamic_fieldset_append {{ loop.first == true ? '' : 'delete' }}"></div>
+                    <div class="dynamic_fieldset_inner">
+                        <div class="fieldset clearfix">
+                            <label>{{ field.title }}</label>
+                            <label class="full">
+                                <input type="text" name="{{ field.label }}[]" value="{{ single }}" placeholder="{{ placeholder }}" class="form-control date" data-minDate="{{ field.options.minDate }}" {{ disableOption }} />
+                            </label>
+
+                            {% if field.options.help is defined %}
+                                <div class="alert alert-warning help">
+                                    {{ field.options.help }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endblock dynamicDateInner %}
+    </li>
+{% endblock dynamicDate %}
+<!-- //date | Dynamic Single & Group -->
+
+<!-- ******************************************************************************************************************************** -->
+
+<!-- dateRange | Static -->
+{% block dateRange %}
+    <li>
+        {% block dateRangeInner %}
+            <div class="fieldset clearfix">
+                <label>{{ field.title }}</label>
+                <label class="full">
+                    <input type="text" name="{{ field.label }}Start" value="{{ field.value.start }}" placeholder="{{ placeholder }}" class="form-control date start" data-minDate="{{ field.options.minDate }}" {{ disableOption }}/>
+                    <input type="text" name="{{ field.label }}End" value="{{ field.value.end }}" placeholder="{{ placeholder }}" class="form-control date end" data-minDate="{{ field.options.minDate }}" {{ disableOption }}/>
+                    <input type="hidden" name="{{ field.label }}Between" value="{{ field.value.between }}" class="between_dates">
+                    <input type="hidden" name="{{ field.label }}Count" value="{{ field.value.count }}" class="data_number">
+                </label>
+
+                {% if field.options.help is defined %}
+                    <div class="alert alert-warning help">
+                        {{ field.options.help }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endblock dateRangeInner %}
+    </li>
+{% endblock dateRange %}
+<!-- //dateRange | Static -->
+
+<!-- dateRange | Dynamic Multiple Group -->
+{% block dynamicDateRangeGroup %}
+    <div class="fieldset clearfix">
+        <label>{{ field.title }}</label>
+        <label class="full">
+            <input type="text" name="{{ field.label }}Start[]" value="{{ field.value.start[key] }}" placeholder="{{ placeholder }}" class="form-control date start" data-minDate="{{ field.options.minDate }}" {{ disableOption }}/>
+            <input type="text" name="{{ field.label }}End[]" value="{{ field.value.end[key] }}" placeholder="{{ placeholder }}" class="form-control date end" data-minDate="{{ field.options.minDate }}" {{ disableOption }}/>
+            <input type="hidden" name="{{ field.label }}Between[]" value="{{ field.value.between[key] }}" class="between_dates">
+            <input type="hidden" name="{{ field.label }}Count[]" value="{{ field.value.count[key] }}" class="data_number">
+        </label>
+
+        {% if field.options.help is defined %}
+            <div class="alert alert-warning help">
+                {{ field.options.help }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock dynamicDateRangeGroup %}
+<!-- //dateRange | Dynamic Multiple Group -->
+
+<!-- dateRange | Dynamic Single & Group -->
+{% block dynamicDateRange %}
+    <li>
+        {% block dynamicDateRangeInner %}
+            {% for single in field.value.start %}
+                <div class="dynamic_fieldset">
+                    <div class="dynamic_fieldset_append {{ loop.first == true ? '' : 'delete' }}"></div>
+                    <div class="dynamic_fieldset_inner">
+                        <div class="fieldset clearfix">
+                            <label>{{ field.title }}</label>
+                            <label class="full">
+                                <input type="text" name="{{ field.label }}Start[]" value="{{ field.value.start[loop.index0] }}" placeholder="{{ placeholder }}" class="form-control date start" data-minDate="{{ field.options.minDate }}" {{ disableOption }}/>
+                                <input type="text" name="{{ field.label }}End[]" value="{{ field.value.end[loop.index0] }}" placeholder="{{ placeholder }}" class="form-control date end" data-minDate="{{ field.options.minDate }}" {{ disableOption }}/>
+                                <input type="hidden" name="{{ field.label }}Between[]" value="{{ field.value.between[loop.index0] }}" class="between_dates">
+                                <input type="hidden" name="{{ field.label }}Count[]" value="{{ field.value.count[loop.index0] }}" class="data_number">
+                            </label>
+
+                            {% if field.options.help is defined %}
+                                <div class="alert alert-warning help">
+                                    {{ field.options.help }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endblock dynamicDateRangeInner %}
+    </li>
+{% endblock dynamicDateRange %}
+<!-- //dateRange | Dynamic Single & Group -->
+
+<!-- ******************************************************************************************************************************** -->
+
+<!-- dateMultiple -->
+{% block dateMultiple %}
+    <li>
+        {% block dateMultipleInner %}
+            <div class="fieldset clearfix">
+                <label>{{ field.title }}</label>
+                <label class="full">
+                    <div id="{{ field.label }}" class="multipleDate"></div>
+                    <input type="hidden" name="{{ field.label }}" value="{{ field.value }}" />
+                </label>
+
+                {% if field.options.help is defined %}
+                    <div class="alert alert-warning help">
+                        {{ field.options.help }}
+                    </div>
+                {% endif %}
+
+                <script>
+                    $(document).ready(function () {
+                        var year = new Date().getFullYear().toString().substr(-2);
+
+                        $('#{{  field.label }}').multiDatesPicker({
+                            dateFormat: "dd.mm.yy",
+
+                            {% if not field.value is empty %}
+                            addDates: [{{ field.value }}],
+                            {% endif %}
+
+                            numberOfMonths: [1,4],
+                            defaultDate: year + '-1-1'
+                        });
+                    })
+                </script>
+            </div>
+        {% endblock dateMultipleInner %}
+    </li>
+{% endblock dateMultiple %}
+<!-- //dateMultiple -->
+
+<!-- ******************************************************************************************************************************** -->
+
+<!-- time | Static -->
+{% block time %}
+    <li>
+        {% block timeInner %}
+            <div class="fieldset clearfix">
+                <label>{{ field.title }}</label>
+                <label class="full">
+                    <input type="time" name="{{ field.label }}" value="{{ field.value }}" class="form-control time" />
+                </label>
+
+                {% if field.options.help is defined %}
+                    <div class="alert alert-warning help">
+                        {{ field.options.help }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endblock timeInner %}
+    </li>
+{% endblock time %}
+<!-- //time | Static -->
+
+<!-- time | Dynamic Multiple Group -->
+{% block dynamicTimeGroup %}
+    <div class="fieldset clearfix">
+        <label>{{ field.title }}</label>
+        <label class="full">
+            <input type="time" name="{{ field.label }}[]" value="{{ single }}" class="form-control time"/>
+        </label>
+
+        {% if field.options.help is defined %}
+            <div class="alert alert-warning help">
+                {{ field.options.help }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock dynamicTimeGroup %}
+<!-- //time | Dynamic Multiple Group -->
+
+<!-- time | Dynamic Single & Group -->
+{% block dynamicTime %}
+    <li>
+        {% block dynamicTimeInner %}
+            {% for single in field.value %}
+                <div class="dynamic_fieldset">
+                    <div class="dynamic_fieldset_append {{ loop.first == true ? '' : 'delete' }}"></div>
+                    <div class="dynamic_fieldset_inner">
+                        <div class="fieldset clearfix">
+                            <label>{{ field.title }}</label>
+                            <label class="full">
+                                <input type="time" name="{{ field.label }}[]" value="{{ single }}" class="form-control time" />
+                            </label>
+
+                            {% if field.options.help is defined %}
+                                <div class="alert alert-warning help">
+                                    {{ field.options.help }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endblock dynamicTimeInner %}
+    </li>
+{% endblock dynamicTime %}
+<!-- //time | Dynamic Single & Group -->
+
+<!-- ******************************************************************************************************************************** -->
+
+<!-- select | Static -->
+{% block select %}
+    <li>
+        {% block selectInner %}
+            <div class="fieldset clearfix">
+                <label>{{ field.title }}</label>
+                <label class="full">
+                    <select name="{{ field.label }}" class="form-control" {{ disableOption }}>
+                        <option value="0">{{ labels.zeroTitle }}</option>
+
+                        {% if tableTitle is null %}
+                            {% for option in options %}
+                                <option value="{{ option.key }}" {{ option.key == field.value ? 'selected' : '' }}>{{ option.value }}</option>
+                            {% endfor %}
+                        {% else %}
+                            <optgroup label="{{tableTitle }}">
+                                {% for option in options %}
+                                    <option value="{{ option.key }}" {{ option.key == field.value ? 'selected' : '' }}>{{ option.value }}</option>
+                                {% endfor %}
+                            </optgroup>
+                        {% endif %}
+                    </select>
+                </label>
+
+                {% if field.options.help is defined %}
+                    <div class="alert alert-warning help">
+                        {{ field.options.help }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endblock selectInner %}
+    </li>
+{% endblock select %}
+<!-- //select | Static -->
+
+<!-- select | Dynamic Multiple Group -->
+{% block dynamicSelectGroup %}
+    <div class="fieldset clearfix">
+        <label>{{ field.title }}</label>
+        <label class="full">
+            <select name="{{ field.label }}[]" class="form-control" {{ disableOption }}>
+                <option value="0">{{ labels.zeroTitle }}</option>
+
+                {% if tableTitle is null %}
+                    {% for option in options %}
+                        <option value="{{ option.key }}" {{ option.key == single ? 'selected' : '' }}>{{ option.value }}</option>
+                    {% endfor %}
+                {% else %}
+                    <optgroup label="{{ tableTitle }}">
+                        {% for option in options %}
+                            <option value="{{ option.key }}" {{ option.key == single ? 'selected' : '' }}>{{ option.value }}</option>
+                        {% endfor %}
+                    </optgroup>
+                {% endif %}
+            </select>
+        </label>
+
+        {% if field.options.help is defined %}
+            <div class="alert alert-warning help">
+                {{ field.options.help }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock dynamicSelectGroup %}
+<!-- //select | Dynamic Multiple Group -->
+
+<!-- select | Dynamic Single & Group -->
+{% block dynamicSelect %}
+    <li>
+        {% block dynamicSelectInner %}
+            {% for single in field.value %}
+                <div class="dynamic_fieldset">
+                    <div class="dynamic_fieldset_append {{ loop.first == true ? '' : 'delete' }}"></div>
+                    <div class="dynamic_fieldset_inner">
+                        <div class="fieldset clearfix">
+                            <label>{{ field.title }}</label>
+                            <label class="full">
+                                <select name="{{ field.label }}[]" class="form-control" {{ disableOption }}>
+                                    <option value="0">{{ labels.zeroTitle }}</option>
+
+                                    {% if tableTitle is null %}
+                                        {% for option in options %}
+                                            <option value="{{ option.key }}" {{ option.key == single ? 'selected' : '' }}>{{ option.value }}</option>
+                                        {% endfor %}
+                                    {% else %}
+                                        <optgroup label="{{ tableTitle }}">
+                                            {% for option in options %}
+                                                <option value="{{ option.key }}" {{ option.key == single ? 'selected' : '' }}>{{ option.value }}</option>
+                                            {% endfor %}
+                                        </optgroup>
+                                    {% endif %}
+                                </select>
+                            </label>
+
+                            {% if field.options.help is defined %}
+                                <div class="alert alert-warning help">
+                                    {{ field.options.help }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endblock dynamicSelectInner %}
+    </li>
+{% endblock dynamicSelect %}
+<!-- //select | Dynamic Single & Group -->
+
+<!-- ******************************************************************************************************************************** -->
+
+<!-- multipleSelect -->
+{% block multipleSelect %}
+    <li>
+        {% block multipleSelectInner %}
+            <div class="fieldset clearfix">
+                <label>{{ field.title }}</label>
+                <label class="full">
+                    <select name="{{ field.label }}[]" class="form-control" {{ disableOption }} multiple>
+                        {% if tableTitle is null %}
+                            {% for option in options %}
+                                <option value="{{ option.key }}" {{ option.key in field.value ? 'selected' : '' }}>{{ option.value }}</option>
+                            {% endfor %}
+                        {% else %}
+                            <optgroup label="{{ tableTitle }}">
+                                {% for option in options %}
+                                    <option value="{{ option.key }}" {{ option.key in field.value ? 'selected' : '' }}>{{ option.value }}</option>
+                                {% endfor %}
+                            </optgroup>
+                        {% endif %}
+                    </select>
+                </label>
+
+                {% if field.options.help is defined %}
+                    <div class="alert alert-warning help">
+                        {{ field.options.help }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endblock multipleSelectInner %}
+    </li>
+{% endblock multipleSelect %}
+<!-- //multipleSelect -->
+
+<!-- multipleSelect | Dynamic Multiple Group -->
+{% block dynamicMultipleSelectGroup %}
+    <div class="fieldset clearfix">
+        <label>{{ field.title }}</label>
+        <label class="full">
+            <select name="{{ field.label }}[][{{ index }}]" class="form-control" {{ disableOption }} multiple>
+                {% if tableTitle is null %}
+                    {% for option in options %}
+                        <option value="{{ option.key }}" {{ option.key == single ? 'selected' : '' }}>{{ option.value }}</option>
+                    {% endfor %}
+                {% else %}
+                    <optgroup label="{{ tableTitle }}">
+                        {% for option in options %}
+                            <option value="{{ option.key }}" {{ option.key == single ? 'selected' : '' }}>{{ option.value }}</option>
+                        {% endfor %}
+                    </optgroup>
+                {% endif %}
+            </select>
+        </label>
+
+        {% if field.options.help is defined %}
+            <div class="alert alert-warning help">
+                {{ field.options.help }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock dynamicMultipleSelectGroup %}
+<!-- //multipleSelect | Dynamic Multiple Group -->
+
+<!-- multipleSelect | Dynamic Single & Group -->
+{% block dynamicMultipleSelect %}
+    <li>
+        {% block dynamicMultipleSelectInner %}
+            {% for single in field.value %}
+                <div class="dynamic_fieldset">
+                    <div class="dynamic_fieldset_append {{ loop.first == true ? '' : 'delete' }}"></div>
+                    <div class="dynamic_fieldset_inner">
+                        <div class="fieldset clearfix">
+                            <label>{{ field.title }}</label>
+                            <label class="full">
+                                <select name="{{ field.label }}[][{{ loop.parent.loop.index }}]" class="form-control" {{ disableOption }} multiple>
+                                    {% if tableTitle is null %}
+                                        {% for option in options %}
+                                            <option value="{{ option.key }}" {{ option.key == single ? 'selected' : '' }}>{{ option.value }}</option>
+                                        {% endfor %}
+                                    {% else %}
+                                        <optgroup label="{{ tableTitle }}">
+                                            {% for option in options %}
+                                                <option value="{{ option.key }}" {{ option.key == single ? 'selected' : '' }}>{{ option.value }}</option>
+                                            {% endfor %}
+                                        </optgroup>
+                                    {% endif %}
+                                </select>
+                            </label>
+
+                            {% if field.options.help is defined %}
+                                <div class="alert alert-warning help">
+                                    {{ field.options.help }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endblock dynamicMultipleSelectInner %}
+    </li>
+{% endblock dynamicMultipleSelect %}
+<!-- //multipleSelect | Dynamic Single & Group -->
+
+<!-- ******************************************************************************************************************************** -->
+
+<!-- radio | Static -->
+{% block radio %}
+    <li>
+        {% block radioInner %}
+            <div class="fieldset clearfix">
+                <label>{{ field.title }}</label>
+                <label class="full">
+                    {% for single in data %}
+                        {% set selected = field.value == single.key or (field.value == '' and loop.index == 1) ? ' checked' : '' %}
+
+                        <input type="radio" name="{{ field.label }}" value="{{ single.key }}" class="form-control" {{ selected }} />
+                        {{ single.value }}
+                    {% endfor %}
+                </label>
+
+                {% if field.options.help is defined %}
+                    <div class="alert alert-warning help">
+                        {{ field.options.help }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endblock radioInner %}
+    </li>
+{% endblock radio %}
+<!-- //radio | Static -->
+
+<!-- radio | Dynamic Multiple Group -->
+{% block dynamicRadioGroup %}
+    <div class="fieldset clearfix">
+        <label>{{ field.title }}</label>
+        <label class="full">
+            <div class="radioListContainer">
+                {% for single in data %}
+                    {% set selected = value == single.key or (value == '' and loop.index == 1) ? ' checked' : '' %}
+
+                    <input type="radio" name="{{ field.label }}[][{{ index }}]" data-name="{{ field.label }}" value="{{ single.key }}" class="form-control" {{ selected }} />
+                    {{ single.value }}
+                {% endfor %}
+            </div>
+        </label>
+
+        {% if field.options.help is defined %}
+            <div class="alert alert-warning help">
+                {{ field.options.help }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock dynamicRadioGroup %}
+<!-- //radio | Dynamic Multiple Group -->
+
+<!-- radio | Dynamic Single & Group -->
+{% block dynamicRadio %}
+    <li>
+        {% block dynamicRadioInner %}
+            {% for value in field.value %}
+                <div class="dynamic_fieldset">
+                    <div class="dynamic_fieldset_append {{ loop.first == true ? '' : 'delete' }}"></div>
+                    <div class="dynamic_fieldset_inner">
+                        <div class="fieldset clearfix">
+                            <label>{{ field.title }}</label>
+                            <label class="full">
+                                <div class="radioListContainer">
+                                    {% for single in data %}
+                                        {% set selected = value == single.key or (value == '' and loop.index == 1) ? ' checked' : '' %}
+
+                                        <input type="radio" name="{{ field.label }}[][{{ loop.parent.loop.index }}]" data-name="{{ field.label }}" value="{{ single.key }}" class="form-control" {{ selected }} />
+                                        {{ single.value }}
+                                    {% endfor %}
+                                </div>
+                            </label>
+
+                            {% if field.options.help is defined %}
+                                <div class="alert alert-warning help">
+                                    {{ field.options.help }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endblock dynamicRadioInner %}
+    </li>
+{% endblock dynamicRadio %}
+<!-- //radio | Dynamic Single & Group -->
+
+<!-- ******************************************************************************************************************************** -->
+
+<!-- checkbox -->
+{% block checkbox %}
+    <li>
+        {% block checkboxInner %}
+            <div class="fieldset clearfix">
+                <label>{{ field.title }}</label>
+                <label class="full">
+                    {% for single in data %}
+                        {% set checked = single.key in field.value ? ' checked' : '' %}
+
+                        <label class="checkboxLabel">
+                            <input type="checkbox" name="{{ field.label }}[]" value="{{ single.key }}" class="form-control" {{ checked }} />
+                            {{ single.value }}
+                        </label>
+                    {% endfor %}
+                </label>
+
+                {% if field.options.help is defined %}
+                    <div class="alert alert-warning help">
+                        {{ field.options.help }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endblock checkboxInner %}
+    </li>
+{% endblock checkbox %}
+<!-- //checkbox -->
+
+<!-- checkbox | Dynamic Multiple Group -->
+{% block dynamicCheckboxGroup %}
+    <div class="fieldset clearfix">
+        <label>{{ field.title }}</label>
+        <label class="full">
+            <div class="checkboxListContainer">
+                {% for single in data %}
+                    {% set checked = (single.key in value) or (value == '' and loop.index == 1) ? ' checked' : '' %}
+
+                    <label class="checkboxLabel">
+                        <input type="checkbox" name="{{ field.label }}[][{{ index }}]" data-name="{{ field.label }}" value="{{ single.key }}" class="form-control" {{ checked }} />
+                        {{ single.value }}
+                    </label>
+                {% endfor %}
+            </div>
+        </label>
+
+        {% if field.options.help is defined %}
+            <div class="alert alert-warning help">
+                {{ field.options.help }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock dynamicCheckboxGroup %}
+<!-- //checkbox | Dynamic Multiple Group -->
+
+<!-- checkbox | Dynamic Single & Group -->
+{% block dynamicCheckbox %}
+    <li>
+        {% block dynamicCheckboxInner %}
+            {% for value in field.value %}
+                <div class="dynamic_fieldset">
+                    <div class="dynamic_fieldset_append {{ loop.first == true ? '' : 'delete' }}"></div>
+                    <div class="dynamic_fieldset_inner">
+                        <div class="fieldset clearfix">
+                            <label>{{ field.title }}</label>
+                            <label class="full">
+                                <div class="checkboxListContainer">
+                                    {% for single in data %}
+                                        {% set checked = (single.key in value) or (value == '' and loop.index == 1) ? ' checked' : '' %}
+
+                                        <label class="checkboxLabel">
+                                            <input type="checkbox" name="{{ field.label }}[][{{ loop.parent.loop.index }}]" data-name="{{ field.label }}" value="{{ single.key }}" class="form-control" {{ checked }} />
+                                            {{ single.value }}
+                                        </label>
+                                    {% endfor %}
+                                </div>
+                            </label>
+
+                            {% if field.options.help is defined %}
+                                <div class="alert alert-warning help">
+                                    {{ field.options.help }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endblock dynamicCheckboxInner %}
+    </li>
+{% endblock dynamicCheckbox %}
+<!-- //checkbox | Dynamic Single & Group -->
+
+<!-- ******************************************************************************************************************************** -->
