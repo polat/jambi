@@ -69,7 +69,7 @@ class Member
      */
     public function updateMember($id, $username, $password, $rank, $status)
     {
-        if ($this->Loader->Db->update('system_users', array('username' => $username, 'password' => $password, 'rank' => $rank, 'account_status' => $status), "id ='$id'")) {
+        if ($this->Loader->Db->update('system_users', array('username' => $username, 'password' => $password, 'rank' => $rank, 'account_status' => $status), "id = :id", ['id' => $id])) {
             $result = array('message' => _('Kullanıcı bilgileri başarıyla güncellendi.'), 'result' => 'success');
         } else {
             $result = array('message' => _('Kullanıcı bilgileri güncellenirken hata oluştu!'), 'result' => 'error');
@@ -93,7 +93,7 @@ class Member
         $record = $this->Loader->Db->select("SELECT `id` FROM `system_users` WHERE `id` = :id", array('id' => $id));
 
         if (count($record) > 0) {
-            if ($this->Loader->Db->delete("system_users", "id='$id'")) {
+            if ($this->Loader->Db->delete("system_users", "id = :id", ['id' => $id])) {
                 $result = array('message' => _('Kullanıcı başarıyla silindi.'), 'result' => 'success');
             } else {
                 $result = array('message' => _('Kullanıcı silinirken hata oluştu!'), 'result' => 'error');
@@ -121,7 +121,7 @@ class Member
         $success = true;
 
         foreach ($members as $id) {
-            if ($this->Loader->Db->delete("system_users", "id='$id'") == false) {
+            if ($this->Loader->Db->delete("system_users", "id = :id", ['id' => $id]) == false) {
                 $success = false;
             }
         }

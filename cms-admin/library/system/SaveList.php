@@ -309,7 +309,7 @@ class SaveList
         $this->recordData['updated'] = date(JAMBI_ADMIN_DATE_FORMAT);
         $old_data = $this->Loader->Db->selectOne("SELECT * FROM `$this->table` WHERE `id` = :id", array('id' => $this->id));
 
-        if ($this->Loader->Db->update($this->table, $this->recordData, "id='$this->id'")) {
+        if ($this->Loader->Db->update($this->table, $this->recordData, "id = :id", ['id' => $this->id])) {
             $this->rec_id = $this->id;
             $this->saveMetaData();
             $this->updateRelatedRecords($this->table, $this->rec_id);
@@ -575,7 +575,11 @@ class SaveList
 
                 if (!empty($record[$permalinkKey . $lang])) {
                     $metaData['full_url'] = $full_url['full_url'] . '/' . $record[$permalinkKey . $lang];
-                    $this->Loader->Db->update('system_meta', $metaData, " rec_id = '$id' AND rec_table = '$table' AND lang = '$lang'");
+                    $this->Loader->Db->update('system_meta', $metaData, "rec_id = :rec_id AND rec_table = :rec_table AND lang = :lang", [
+                        'rec_id' => $id,
+                        'rec_table' => $table,
+                        'lang' => $lang
+                    ]);
                 }
 
                 $this->updateRelatedRecordsInConnectedTable($table, $id, $lang);
@@ -609,7 +613,11 @@ class SaveList
 
                         if (!empty($record[$this->permalinkKey . $lang])) {
                             $metaData['full_url'] = $full_url['full_url'] . '/' . $record[$this->permalinkKey . $lang];
-                            $this->Loader->Db->update('system_meta', $metaData, " rec_id = '$id' AND rec_table = '$tableName' AND lang = '$lang'");
+                            $this->Loader->Db->update('system_meta', $metaData, "rec_id = :rec_id AND rec_table = :rec_table AND lang = :lang", [
+                                'rec_id' => $id,
+                                'rec_table' => $tableName,
+                                'lang' => $lang
+                            ]);
                         }
                     }
                 }
@@ -735,7 +743,11 @@ class SaveList
             if (($this->isNewRecord() || empty($record)) && (!empty($metaData['title']) && !empty($metaData['url']))) {
                 $this->Loader->Db->insert('system_meta', $metaData);
             } else {
-                $this->Loader->Db->update('system_meta', $metaData, " rec_id = '$this->rec_id' AND rec_table='$this->table' AND lang='$key'");
+                $this->Loader->Db->update('system_meta', $metaData, "rec_id = :rec_id AND rec_table = :rec_table AND lang = :lang", [
+                    'rec_id' => $this->rec_id,
+                    'rec_table' => $this->table,
+                    'lang' => $key
+                ]);
             }
         }
     }

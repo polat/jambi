@@ -5,7 +5,7 @@
  * Jambi version
  * @var String JAMBI_VERSION
  */
-define('JAMBI_VERSION', "1.8.0");
+define('JAMBI_VERSION', "1.8.1");
 
 
 /**
